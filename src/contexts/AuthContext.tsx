@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { User, Session } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 interface AuthContextType {
   user: User | null;
@@ -19,13 +19,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    // If Supabase is not configured, just set loading to false
+    if (!isSupabaseConfigured() || !supabase) {
+      setLoading(false);
+      return;
+    }
+
+    const client = supabase; // TypeScript assertion that supabase is not null here
+
+    client.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = client.auth.onAuthStateChange((_event, session) => {
       (async () => {
         setSession(session);
         setUser(session?.user ?? null);
@@ -36,13 +44,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = async (email: string, password: string, fullName: string) => {
-    const { data, error } = await supabase.auth.signUp({
+    if (!isSupabaseConfigured() || !supabase) {
+      return { error: { message: 'Authentication not configured' } };
+    }
+
+    const client = supabase; // TypeScript assertion
+
+    const { data, error } = await client.auth.signUp({
       email,
       password,
     });
 
     if (!error && data.user) {
-      await supabase.from('profiles').insert({
+      await client.from('profiles').insert({
         id: data.user.id,
         email,
         full_name: fullName,
@@ -53,7 +67,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
+    if (!isSupabaseConfigured() || !supabase) {
+      return { error: { message: 'Authentication not configured' } };
+    }
+
+    const client = supabase; // TypeScript assertion
+
+    const { error } = await client.auth.signInWithPassword({
       email,
       password,
     });
@@ -61,7 +81,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    if (!isSupabaseConfigured() || !supabase) {
+      return;
+    }
+    
+    const client = supabase; // TypeScript assertion
+    await client.auth.signOut();
   };
 
   const value = {
