@@ -1,27 +1,7 @@
-# Dependencies
-node_modules
-
-# Development files
-src
-*.config.js
-*.config.ts
-tsconfig*.json
-eslint.config.js
-
-# Build tools
-vite.config.ts
-postcss.config.js
-tailwind.config.js
-
-# Documentation
-README.md
-
-# Database migrations (if not needed in production)
-supabase/migrations
-
-# Git
-.git
-.gitignore
-
-# Logs
+# Only exclude files that are not needed for deployment
+node_modules/
+.git/
 *.log
+.DS_Store
+.env.local
+.env.*.local
