@@ -24,6 +24,12 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
   }, []);
 
   const navItems = [
+    { name: 'Menu', path: 'menu' },
+    { name: 'Contact', path: 'contact' },
+    { name: 'About', path: 'about' },
+  ];
+
+  const desktopNavItems = [
     { name: 'Home', path: 'home' },
     { name: 'About', path: 'about' },
     { name: 'Menu', path: 'menu' },
@@ -56,7 +62,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           </button>
 
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {navItems.map((item) => (
+            {desktopNavItems.map((item) => (
               <button
                 key={item.path}
                 onClick={() => onNavigate(item.path)}

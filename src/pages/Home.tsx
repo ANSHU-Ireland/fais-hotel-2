@@ -36,32 +36,61 @@ export default function Home({ onNavigate }: HomeProps) {
 
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {/* Mobile: 1 column with combined features, Desktop: 4 columns with all features */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
+            {/* Mobile View - Single combined card */}
+            <div className="lg:hidden text-center p-6 rounded-lg shadow-xl bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200">
+              <div className="flex justify-center gap-8 mb-4">
+                <div className="text-amber-600">
+                  <Clock size={40} />
+                </div>
+                <div className="text-amber-600">
+                  <MapPin size={40} />
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-1">Open Daily</h3>
+                  <p className="text-sm text-gray-600">Monday - Sunday<br/>11:00 AM - 3:00 AM</p>
+                </div>
+                <div className="h-px bg-amber-300"></div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-1">Prime Location</h3>
+                  <p className="text-sm text-gray-600">Temple Street, Dublin 2</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop View - All features */}
             {[
               {
                 icon: <ChefHat size={48} />,
                 title: 'Expert Chefs',
                 description: 'Our award-winning chefs bring passion and creativity to every dish',
+                showOnDesktop: true,
               },
               {
                 icon: <Clock size={48} />,
                 title: 'Open Daily',
                 description: 'Monday - Sunday, 11:00 AM - 3:00 AM',
+                showOnDesktop: true,
               },
               {
                 icon: <MapPin size={48} />,
                 title: 'Prime Location',
                 description: 'Located in the heart of Dublin city centre',
+                showOnDesktop: true,
               },
               {
                 icon: <Award size={48} />,
                 title: 'Award Winning',
                 description: 'Recognized for excellence in fine dining',
+                showOnDesktop: true,
               },
             ].map((feature, index) => (
               <div
                 key={index}
-                className="text-center p-6 rounded-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
+                className="hidden lg:block text-center p-6 rounded-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="text-amber-600 flex justify-center mb-4">{feature.icon}</div>
@@ -69,40 +98,6 @@ export default function Home({ onNavigate }: HomeProps) {
                 <p className="text-sm sm:text-base text-gray-600">{feature.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div className="animate-slide-in-left order-2 md:order-1">
-              <img
-                src="https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Restaurant interior"
-                className="rounded-lg shadow-2xl"
-              />
-            </div>
-            <div className="animate-slide-in-right order-1 md:order-2">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-gray-800">Welcome to PULARI</h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-4 leading-relaxed">
-                Since opening our doors in the heart of Dublin, PULARI Restaurant has been dedicated
-                to providing an unforgettable dining experience. Our commitment to using the
-                finest locally-sourced ingredients and time-honored cooking techniques has made us
-                a beloved destination for food lovers.
-              </p>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
-                Whether you're celebrating a special occasion or simply enjoying a meal with
-                loved ones, our warm atmosphere and exceptional service will make your visit
-                memorable.
-              </p>
-              <button
-                onClick={() => onNavigate('about')}
-                className="bg-amber-600 text-white px-6 py-3 rounded-full hover:bg-amber-700 transform hover:scale-105 transition-all duration-300"
-              >
-                Learn More About Us
-              </button>
-            </div>
           </div>
         </div>
       </section>
