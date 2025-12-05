@@ -94,18 +94,17 @@ function App() {
               <div>
                 <h4 className="font-semibold mb-4">Contact</h4>
                 <ul className="space-y-2 text-gray-400">
-                  <li>123 Grafton Street</li>
-                  <li>Dublin 2, D02 X285</li>
-                  <li>+353 1 234 5678</li>
-                  <li>info@xyz-restaurant.ie</li>
+                  <li>Temple Street</li>
+                  <li>Dublin 2, Ireland</li>
+                  <li>087 973 8186</li>
+                  <li>info@pularirestaurant.ie</li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold mb-4">Hours</h4>
                 <ul className="space-y-2 text-gray-400">
-                  <li>Mon - Thu: 12:00 PM - 10:00 PM</li>
-                  <li>Fri - Sat: 12:00 PM - 11:00 PM</li>
-                  <li>Sunday: 12:00 PM - 9:00 PM</li>
+                  <li>Monday - Sunday</li>
+                  <li>11:00 AM - 3:00 AM</li>
                 </ul>
               </div>
             </div>

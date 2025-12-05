@@ -55,8 +55,8 @@ export default function Contact() {
                 <MapPin className="text-amber-600 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Address</h3>
-                  <p className="text-gray-600">123 Grafton Street</p>
-                  <p className="text-gray-600">Dublin 2, D02 X285</p>
+                  <p className="text-gray-600">Temple Street</p>
+                  <p className="text-gray-600">Dublin 2</p>
                   <p className="text-gray-600">Ireland</p>
                 </div>
               </div>
@@ -65,8 +65,8 @@ export default function Contact() {
                 <Phone className="text-amber-600 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Phone</h3>
-                  <p className="text-gray-600">+353 1 234 5678</p>
-                  <p className="text-gray-600 text-sm mt-1">Monday - Sunday: 10:00 AM - 10:00 PM</p>
+                  <p className="text-gray-600">087 973 8186</p>
+                  <p className="text-gray-600 text-sm mt-1">Monday - Sunday: 11:00 AM - 3:00 AM</p>
                 </div>
               </div>
 
@@ -74,8 +74,8 @@ export default function Contact() {
                 <Mail className="text-amber-600 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Email</h3>
-                  <p className="text-gray-600">info@xyz-restaurant.ie</p>
-                  <p className="text-gray-600">reservations@xyz-restaurant.ie</p>
+                  <p className="text-gray-600">info@pularirestaurant.ie</p>
+                  <p className="text-gray-600">reservations@pularirestaurant.ie</p>
                 </div>
               </div>
 
@@ -83,9 +83,7 @@ export default function Contact() {
                 <Clock className="text-amber-600 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Opening Hours</h3>
-                  <p className="text-gray-600">Monday - Thursday: 12:00 PM - 10:00 PM</p>
-                  <p className="text-gray-600">Friday - Saturday: 12:00 PM - 11:00 PM</p>
-                  <p className="text-gray-600">Sunday: 12:00 PM - 9:00 PM</p>
+                  <p className="text-gray-600">Monday - Sunday: 11:00 AM - 3:00 AM</p>
                 </div>
               </div>
             </div>
