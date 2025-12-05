@@ -45,7 +45,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               isScrolled ? 'text-amber-600' : 'text-white'
             }`}
           >
-            XYZ Restaurant
+            Pulari Restaurant
           </button>
 
           <div className="hidden lg:flex items-center space-x-8">

@@ -66,7 +66,7 @@ export default function Reservations({ onNavigate }: ReservationsProps) {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-6xl font-bold mb-4 animate-fade-in">Reservations</h1>
-          <p className="text-2xl animate-fade-in-delay">Book your table at XYZ Restaurant</p>
+          <p className="text-2xl animate-fade-in-delay">Book your table at Pulari Restaurant</p>
         </div>
       </section>
 

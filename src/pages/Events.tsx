@@ -86,7 +86,7 @@ export default function Events() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-6xl font-bold mb-4 animate-fade-in">Special Events</h1>
-          <p className="text-2xl animate-fade-in-delay">Memorable occasions at XYZ Restaurant</p>
+          <p className="text-2xl animate-fade-in-delay">Memorable occasions at Pulari Restaurant</p>
         </div>
       </section>
 
@@ -131,7 +131,7 @@ export default function Events() {
                       </div>
                       <div className="flex items-center text-gray-700">
                         <MapPin className="text-amber-600 mr-3" size={20} />
-                        <span className="font-semibold">XYZ Restaurant, Dublin City Centre</span>
+                        <span className="font-semibold">Pulari Restaurant, Dublin City Centre</span>
                       </div>
                     </div>
 
@@ -150,7 +150,7 @@ export default function Events() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-6 animate-fade-in">Private Events</h2>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Looking to host a private event? XYZ Restaurant offers exclusive venue hire for
+            Looking to host a private event? Pulari Restaurant offers exclusive venue hire for
             corporate events, weddings, birthday celebrations, and more. Our dedicated events team
             will work with you to create a bespoke menu and ensure every detail is perfect.
           </p>

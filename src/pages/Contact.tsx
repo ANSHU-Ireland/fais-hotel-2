@@ -99,7 +99,7 @@ export default function Contact() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="XYZ Restaurant Location"
+                title="Pulari Restaurant Location"
               ></iframe>
             </div>
           </div>

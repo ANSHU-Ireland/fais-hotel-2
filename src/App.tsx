@@ -51,7 +51,7 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-4 text-amber-500">XYZ Restaurant</h3>
+                <h3 className="text-xl font-bold mb-4 text-amber-500">Pulari Restaurant</h3>
                 <p className="text-gray-400">
                   Experience Dublin's finest cuisine in the heart of the city centre.
                 </p>
@@ -100,7 +100,7 @@ function App() {
               </div>
             </div>
             <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-              <p>&copy; 2025 XYZ Restaurant. All rights reserved.</p>
+              <p>&copy; 2025 Pulari Restaurant. All rights reserved.</p>
             </div>
           </div>
         </footer>

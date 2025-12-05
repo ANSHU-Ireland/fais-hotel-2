@@ -20,7 +20,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-700 leading-relaxed mb-6 animate-slide-in-left">
-              XYZ Restaurant opened its doors in 2015 with a simple vision: to bring authentic,
+              Pulari Restaurant opened its doors in 2015 with a simple vision: to bring authentic,
               high-quality cuisine to Dublin city centre while creating a warm, welcoming
               atmosphere that feels like home.
             </p>
@@ -31,7 +31,7 @@ export default function About() {
               share our commitment to quality and sustainability.
             </p>
             <p className="text-xl text-gray-700 leading-relaxed animate-slide-in-left">
-              Today, XYZ Restaurant continues to be a cornerstone of Dublin's dining scene,
+              Today, Pulari Restaurant continues to be a cornerstone of Dublin's dining scene,
               recognized for excellence in both food and service. We're proud to have served
               thousands of guests, from locals celebrating special occasions to visitors
               discovering the best of Irish hospitality.

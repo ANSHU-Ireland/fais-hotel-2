@@ -372,7 +372,7 @@ export default function Account({ onNavigate }: AccountProps) {
 
                           <div className="flex items-center space-x-3">
                             <MapPin className="text-amber-600" size={20} />
-                            <span className="text-gray-700">XYZ Restaurant</span>
+                            <span className="text-gray-700">Pulari Restaurant</span>
                           </div>
                         </div>
 

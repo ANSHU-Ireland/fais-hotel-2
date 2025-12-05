@@ -16,7 +16,7 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center text-white px-4 animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-slide-up">
-            XYZ Restaurant
+            PULARI
           </h1>
           <p className="text-2xl md:text-3xl mb-8 animate-slide-up-delay">
             Experience Dublin's Finest Cuisine
@@ -80,9 +80,9 @@ export default function Home({ onNavigate }: HomeProps) {
               />
             </div>
             <div className="animate-slide-in-right">
-              <h2 className="text-4xl font-bold mb-6 text-gray-800">Welcome to XYZ</h2>
+              <h2 className="text-4xl font-bold mb-6 text-gray-800">Welcome to PULARI</h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                Since opening our doors in the heart of Dublin, XYZ Restaurant has been dedicated
+                Since opening our doors in the heart of Dublin, PULARI Restaurant has been dedicated
                 to providing an unforgettable dining experience. Our commitment to using the
                 finest locally-sourced ingredients and time-honored cooking techniques has made us
                 a beloved destination for food lovers.
