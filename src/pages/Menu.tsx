@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { Leaf, Wheat } from 'lucide-react';
+import { Leaf, Wheat, ShoppingCart, Check } from 'lucide-react';
+import { useCart } from '../contexts/CartContext';
 
 // Import menu images
 import samosaImage from '../assets/gallery/samosa.jpg';
@@ -29,6 +30,31 @@ interface MenuCategory {
 export default function Menu() {
   const [categories, setCategories] = useState<MenuCategory[]>([]);
   const [loading, setLoading] = useState(false); // Set to false to use local data
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (item: MenuItem) => {
+    addToCart({
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: item.price,
+      image_url: item.image_url,
+      is_vegetarian: item.is_vegetarian,
+      is_vegan: item.is_vegan,
+      is_gluten_free: item.is_gluten_free,
+    });
+    
+    // Show added animation
+    setAddedItems(prev => new Set(prev).add(item.id));
+    setTimeout(() => {
+      setAddedItems(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(item.id);
+        return newSet;
+      });
+    }, 2000);
+  };
 
   useEffect(() => {
     // Comment out database loading for now, using local menu data
@@ -585,6 +611,29 @@ export default function Menu() {
                             </span>
                           )}
                         </div>
+
+                        {/* Add to Cart Button */}
+                        <button
+                          onClick={() => handleAddToCart(item)}
+                          disabled={addedItems.has(item.id)}
+                          className={`mt-4 w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 ${
+                            addedItems.has(item.id)
+                              ? 'bg-green-500 text-white cursor-not-allowed'
+                              : 'bg-gradient-to-r from-amber-600 to-amber-700 text-white hover:from-amber-700 hover:to-amber-800'
+                          }`}
+                        >
+                          {addedItems.has(item.id) ? (
+                            <>
+                              <Check size={18} className="animate-bounce" />
+                              Added to Cart
+                            </>
+                          ) : (
+                            <>
+                              <ShoppingCart size={18} />
+                              Add to Cart
+                            </>
+                          )}
+                        </button>
 
                         {/* Decorative Bottom Border */}
                         <div className="hidden sm:block absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-transparent via-amber-300 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

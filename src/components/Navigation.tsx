@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, User, LogOut } from 'lucide-react';
+import { Menu, X, User, LogOut, ShoppingCart } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { useCart } from '../contexts/CartContext';
+import logo from '../assets/gallery/logo.jpg';
 
 interface NavigationProps {
   currentPage: string;
@@ -11,6 +13,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { user, signOut } = useAuth();
+  const { getCartCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,11 +44,18 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex justify-between items-center">
           <button
             onClick={() => onNavigate('home')}
-            className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-amber-600' : 'text-white'
-            }`}
+            className="flex items-center space-x-3 transition-all duration-300 hover:opacity-80"
           >
-            Pulari Restaurant
+            <img 
+              src={logo} 
+              alt="Pulari Restaurant Logo" 
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain rounded-lg"
+            />
+            <span className={`text-lg sm:text-xl md:text-2xl font-bold transition-colors duration-300 ${
+              isScrolled ? 'text-amber-600' : 'text-white'
+            }`}>
+              Pulari Restaurant
+            </span>
           </button>
 
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
@@ -67,6 +77,19 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             {user ? (
               <div className="flex items-center space-x-3">
                 <button
+                  onClick={() => onNavigate('cart')}
+                  className={`relative flex items-center space-x-1 transition-colors duration-300 ${
+                    isScrolled ? 'text-gray-700 hover:text-amber-600' : 'text-white hover:text-amber-300'
+                  }`}
+                >
+                  <ShoppingCart size={20} />
+                  {getCartCount() > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
+                      {getCartCount()}
+                    </span>
+                  )}
+                </button>
+                <button
                   onClick={() => onNavigate('account')}
                   className={`flex items-center space-x-2 transition-colors duration-300 font-medium ${
                     isScrolled ? 'text-gray-700 hover:text-amber-600' : 'text-white hover:text-amber-300'
@@ -85,16 +108,31 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 </button>
               </div>
             ) : (
-              <button
-                onClick={() => onNavigate('login')}
-                className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-                  isScrolled 
-                    ? 'bg-amber-600 text-white hover:bg-amber-700' 
-                    : 'bg-white text-amber-800 hover:bg-amber-50'
-                }`}
-              >
-                Sign In
-              </button>
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={() => onNavigate('cart')}
+                  className={`relative flex items-center space-x-1 transition-colors duration-300 ${
+                    isScrolled ? 'text-gray-700 hover:text-amber-600' : 'text-white hover:text-amber-300'
+                  }`}
+                >
+                  <ShoppingCart size={20} />
+                  {getCartCount() > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
+                      {getCartCount()}
+                    </span>
+                  )}
+                </button>
+                <button
+                  onClick={() => onNavigate('login')}
+                  className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
+                    isScrolled 
+                      ? 'bg-amber-600 text-white hover:bg-amber-700' 
+                      : 'bg-white text-amber-800 hover:bg-amber-50'
+                  }`}
+                >
+                  Sign In
+                </button>
+              </div>
             )}
           </div>
 
@@ -150,6 +188,23 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               <div className="space-y-2">
                 <button
                   onClick={() => {
+                    onNavigate('cart');
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <div className="flex items-center space-x-3">
+                    <ShoppingCart size={20} />
+                    <span>Shopping Cart</span>
+                  </div>
+                  {getCartCount() > 0 && (
+                    <span className="bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                      {getCartCount()}
+                    </span>
+                  )}
+                </button>
+                <button
+                  onClick={() => {
                     onNavigate('account');
                     setIsMenuOpen(false);
                   }}
@@ -170,15 +225,34 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 </button>
               </div>
             ) : (
-              <button
-                onClick={() => {
-                  onNavigate('login');
-                  setIsMenuOpen(false);
-                }}
-                className="w-full bg-amber-600 text-white px-6 py-3 rounded-full hover:bg-amber-700 transition-colors duration-300 font-semibold"
-              >
-                Sign In
-              </button>
+              <div className="space-y-2">
+                <button
+                  onClick={() => {
+                    onNavigate('cart');
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <div className="flex items-center space-x-3">
+                    <ShoppingCart size={20} />
+                    <span>Shopping Cart</span>
+                  </div>
+                  {getCartCount() > 0 && (
+                    <span className="bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                      {getCartCount()}
+                    </span>
+                  )}
+                </button>
+                <button
+                  onClick={() => {
+                    onNavigate('login');
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full bg-amber-600 text-white px-6 py-3 rounded-full hover:bg-amber-700 transition-colors duration-300 font-semibold"
+                >
+                  Sign In
+                </button>
+              </div>
             )}
           </div>
         </div>

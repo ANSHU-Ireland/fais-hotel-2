@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
+import { CartProvider } from './contexts/CartContext';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -11,9 +12,15 @@ import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Account from './pages/Account';
+import Cart from './pages/Cart';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -37,6 +44,8 @@ function App() {
         return <Login onNavigate={setCurrentPage} />;
       case 'account':
         return <Account onNavigate={setCurrentPage} />;
+      case 'cart':
+        return <Cart onNavigate={setCurrentPage} />;
       default:
         return <Home onNavigate={setCurrentPage} />;
     }
@@ -44,7 +53,8 @@ function App() {
 
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-white">
+      <CartProvider>
+        <div className="min-h-screen bg-white">
         <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
         {renderPage()}
         <footer className="bg-gray-900 text-white py-12">
@@ -104,7 +114,8 @@ function App() {
             </div>
           </div>
         </footer>
-      </div>
+        </div>
+      </CartProvider>
     </AuthProvider>
   );
 }
