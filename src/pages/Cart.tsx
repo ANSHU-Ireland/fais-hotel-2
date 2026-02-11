@@ -307,7 +307,7 @@ export default function Cart({ onNavigate }: CartProps) {
               {/* Deliveroo */}
               <button
                 onClick={() => {
-                  window.open('https://deliveroo.ie/menu/dublin/temple-bar/pulari-restaurant', '_blank');
+                  window.open('https://deliveroo.ie/menu/Dublin/city-hall/gala-temple-bar?day=today&geohash=gc7x3rhhv3ed&time=ASAP', '_blank');
                 }}
                 className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
