@@ -63,7 +63,6 @@ export default function Menu() {
   const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
-  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
   const { addToCart, items: cartItems } = useCart();
   const navigate = useNavigate();
 
@@ -77,32 +76,6 @@ export default function Menu() {
       }
       return newSet;
     });
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart({
-      x: e.touches[0].clientX,
-      y: e.touches[0].clientY
-    });
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent, categoryId: string) => {
-    if (!touchStart) return;
-
-    const touchEnd = {
-      x: e.changedTouches[0].clientX,
-      y: e.changedTouches[0].clientY
-    };
-
-    const deltaX = Math.abs(touchEnd.x - touchStart.x);
-    const deltaY = Math.abs(touchEnd.y - touchStart.y);
-
-    // Only toggle if it's a tap (minimal movement), not a scroll
-    if (deltaX < 10 && deltaY < 10) {
-      toggleCategory(categoryId);
-    }
-
-    setTouchStart(null);
   };
 
   const handleAddToCart = (item: MenuItem) => {
@@ -616,27 +589,24 @@ export default function Menu() {
                   
                   {/* Mobile: Clickable header */}
                   <div className="flex items-center justify-center gap-2 lg:block">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 bg-clip-text text-transparent mb-3 sm:mb-4 tracking-tight px-4 lg:cursor-default">
+                    <h2 
+                      onClick={() => {
+                        if (window.innerWidth < 1024) {
+                          toggleCategory(category.id);
+                        }
+                      }}
+                      className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 bg-clip-text text-transparent mb-3 sm:mb-4 tracking-tight px-4 cursor-pointer lg:cursor-default select-none"
+                    >
                       {category.name}
                     </h2>
-                    {/* Chevron icon - only visible on mobile, clickable button */}
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (window.innerWidth >= 1024) return;
-                        toggleCategory(category.id);
-                      }}
-                      onTouchStart={handleTouchStart}
-                      onTouchEnd={(e) => handleTouchEnd(e, category.id)}
-                      className="lg:hidden p-2 hover:bg-amber-50 rounded-full transition-colors touch-none"
-                      aria-label={expandedCategories.has(category.id) ? 'Collapse category' : 'Expand category'}
-                    >
+                    {/* Chevron icon - only visible on mobile */}
+                    <div className="lg:hidden pointer-events-none">
                       {expandedCategories.has(category.id) ? (
                         <ChevronUp className="text-amber-600" size={24} />
                       ) : (
                         <ChevronDown className="text-amber-600" size={24} />
                       )}
-                    </button>
+                    </div>
                   </div>
                   
                   <p className="text-base sm:text-lg md:text-xl text-gray-600 italic font-light px-4">{category.description}</p>
