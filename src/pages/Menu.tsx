@@ -22,7 +22,6 @@ import veetileKozhiImage from '../assets/gallery/VEETTILE KOZHI CURRY.jpg';
 import konchuMangoImage from '../assets/gallery/KONCHU MANGO CURRY.jpg';
 import malabarChickenImage from '../assets/gallery/MALABAR CHICKEN BIRIYANI.jpg';
 import malabarBeefImage from '../assets/gallery/MALABAR BEEF BIRIYANI.jpg';
-import kappaBiriyaniImage from '../assets/gallery/KAPPA BIRIYANI.jpg';
 import kappaPuzhukuImage from '../assets/gallery/KAPPA PUZHUKKU.jpg';
 import butterChickenImage from '../assets/gallery/OLD DELHI STYLE BUTTER CHICKEN.jpg';
 import paneerButterImage from '../assets/gallery/PANEER BUTTER MASALA.jpg';
@@ -163,7 +162,7 @@ export default function Menu() {
         {
           id: '1',
           name: 'SAMOSAS',
-          description: 'Handmade pastry stuffed with mashed spiced potatoes, green peas served with chickpeas, sweet yoghurt, mint and tamarind chutneys. (1, 7)',
+          description: 'Handmade pastry stuffed with spiced mashed potatoes and green peas. Served with chickpeas, sweet yoghurt, mint, and tamarind chutneys.',
           price: 4.99,
           image_url: samosaImage,
           is_vegetarian: true,
@@ -173,7 +172,7 @@ export default function Menu() {
         {
           id: '2',
           name: 'MEDU VADA',
-          description: 'An authentic south Indian street food, made with lentil and spices served with homemade chutney (10)',
+          description: 'A classic South Indian street food made with lentils and spices, served with homemade chutney.',
           price: 5.99,
           image_url: meduVadaImage,
           is_vegetarian: true,
@@ -183,7 +182,7 @@ export default function Menu() {
         {
           id: '3',
           name: 'NADAN MASALA OMELETTE',
-          description: 'Made with onion turmeric and chillies is a great way to spice up brunch (3,10)',
+          description: 'A Kerala-style omelette made with onions, turmeric, and chillies — a great way to spice up brunch.',
           price: 6.99,
           image_url: masalaOmeletteImage,
           is_vegetarian: true,
@@ -193,7 +192,7 @@ export default function Menu() {
         {
           id: '4',
           name: 'KOTTAYAM CHICKEN FRY',
-          description: 'Chicken marinated with chilly, coriander, garam masala and served with mixed salad leaves. On the bone (1, 10)',
+          description: 'On-the-bone chicken marinated with chilli, coriander, and garam masala, served with mixed salad leaves.',
           price: 7.99,
           image_url: kottayamChickenImage,
           is_vegetarian: false,
@@ -203,7 +202,7 @@ export default function Menu() {
         {
           id: '5',
           name: 'BANANA FRY',
-          description: 'Traditional street food banana fritters that is crispy and golden on the outside while soft and mushy once fried (1, 10)',
+          description: 'A traditional Kerala snack — golden, crispy banana fritters that are soft and sweet inside.',
           price: 5.99,
           image_url: bananaFryImage,
           is_vegetarian: true,
@@ -213,7 +212,7 @@ export default function Menu() {
         {
           id: '6',
           name: 'VENADU KONCHU FRY',
-          description: 'Prawn made with hand pounded spices, onions, ginger and garlic (1,2,10,prawns)',
+          description: 'Prawns cooked with hand-pounded spices, onions, ginger, and garlic.',
           price: 7.99,
           image_url: venaduKonchuImage,
           is_vegetarian: false,
@@ -230,7 +229,7 @@ export default function Menu() {
         {
           id: '7',
           name: 'GHEE ROAST',
-          description: 'Crispy dosa roasted with ghee (7, 10)',
+          description: 'Crispy dosa roasted with ghee.',
           price: 11.50,
           image_url: gheeRoastImage,
           is_vegetarian: true,
@@ -240,7 +239,7 @@ export default function Menu() {
         {
           id: '8',
           name: 'MASALA DOSA',
-          description: 'Crispy rice crepe filled with spiced potato masala (7, 10)',
+          description: 'Crispy rice crepe filled with spiced potato masala.',
           price: 11.99,
           image_url: masalaDosaImage,
           is_vegetarian: true,
@@ -250,7 +249,7 @@ export default function Menu() {
         {
           id: '9',
           name: 'SET DOSA',
-          description: 'Soft, fluffy dosas served in a set (7, 10)',
+          description: 'Soft, fluffy dosas served in a set.',
           price: 11.50,
           image_url: setDosaImage,
           is_vegetarian: true,
@@ -267,7 +266,7 @@ export default function Menu() {
         {
           id: '10',
           name: 'MYLAPOR EGG ROAST',
-          description: 'Hard boiled eggs cooked with thin sliced onions, tomatoes and hand pounded spices (1,3, 10)',
+          description: 'Hard-boiled eggs cooked with thinly sliced onions, tomatoes, and hand-pounded spices.',
           price: 11.99,
           image_url: mylaporeEggImage,
           is_vegetarian: true,
@@ -277,7 +276,7 @@ export default function Menu() {
         {
           id: '11',
           name: 'HOUSE BOAT FISH CURRY',
-          description: 'Fresh fish cooked with Kashmiri chillies, turmeric, tamarind, and Kerala kudampuli for a special spicy tang (2, 4)',
+          description: 'Fresh fish simmered in a spicy, tangy gravy made with Kashmiri chillies, turmeric, tamarind, and Kerala kudampuli.',
           price: 12.99,
           image_url: houseBoatFishImage,
           is_vegetarian: false,
@@ -287,7 +286,7 @@ export default function Menu() {
         {
           id: '12',
           name: 'NADAN POTHU ROAST',
-          description: 'Traditional Kerala style beef made with curry leaves, black pepper, fennel seeds and spices (1, 10)',
+          description: 'Traditional Kerala-style beef cooked with curry leaves, black pepper, fennel seeds, and aromatic spices.',
           price: 13.99,
           image_url: nadanPothuRoastImage,
           is_vegetarian: false,
@@ -296,8 +295,8 @@ export default function Menu() {
         },
         {
           id: '13',
-          name: 'HI RANGE BEEF ULARTHIYATHU',
-          description: 'Classic beef fry dish, cooked in the traditional Toddy shop way. Slow cooked beef with onions and spicy Kerala masala (10)',
+          name: 'HIGH RANGE BEEF ULARTHIYATHU',
+          description: 'A classic Toddy Shop-style beef fry. Slow-cooked beef and onions blend with Kerala spices for a rich, dark, flavourful finish.',
           price: 13.99,
           image_url: hiRangeBeefImage,
           is_vegetarian: false,
@@ -307,7 +306,7 @@ export default function Menu() {
         {
           id: '14',
           name: 'VEETTILE KOZHI CURRY',
-          description: 'Authentic Kerala dish. On the bone chicken cooked with black pepper, coriander, cinnamon, and cloves (10)',
+          description: 'A homestyle Kerala chicken curry cooked on the bone with black pepper, coriander, cinnamon, and cloves.',
           price: 11.99,
           image_url: veetileKozhiImage,
           is_vegetarian: false,
@@ -317,7 +316,7 @@ export default function Menu() {
         {
           id: '15',
           name: 'KONCHU MANGO CURRY',
-          description: 'Made with prawns, coconut, pearl onions and sour mangoes (2,10,prawns)',
+          description: 'Prawns cooked with coconut, pearl onions, and tangy raw mango.',
           price: 14.99,
           image_url: konchuMangoImage,
           is_vegetarian: false,
@@ -327,7 +326,7 @@ export default function Menu() {
         {
           id: '16',
           name: 'MALABAR CHICKEN BIRIYANI',
-          description: 'Aged, fragrantly flavored rice blends perfectly with chicken cooked to tenderness (7,8)',
+          description: 'Aged, aromatic rice layered with tender chicken, cooked in traditional Malabar style.',
           price: 13.50,
           image_url: malabarChickenImage,
           is_vegetarian: false,
@@ -337,7 +336,7 @@ export default function Menu() {
         {
           id: '17',
           name: 'MALABAR BEEF BIRIYANI',
-          description: 'Cooked in the traditional Malabar Weddings style. Made with beef and signature spices (7,8)',
+          description: "Slow-cooked beef biryani prepared in the authentic Malabar wedding style — our chef's signature dish.",
           price: 13.99,
           image_url: malabarBeefImage,
           is_vegetarian: false,
@@ -346,18 +345,18 @@ export default function Menu() {
         },
         {
           id: '18',
-          name: 'KAPPA BIRIYANI',
-          description: 'A Kerala dish with Tapioca, beef and spices (7,8)',
-          price: 12.50,
-          image_url: kappaBiriyaniImage,
-          is_vegetarian: false,
+          name: 'GOPI MANCHURIAN',
+          description: 'Crispy cauliflower tossed in a tangy Indo-Chinese garlic-chilli sauce.',
+          price: 13.00,
+          image_url: '',
+          is_vegetarian: true,
           is_vegan: false,
           is_gluten_free: false,
         },
         {
           id: '19',
           name: 'KAPPA PUZHUKKU',
-          description: 'A Kerala dish cooked with Tapioca, beef and spices (7,8)',
+          description: 'A comforting Kerala dish made with mashed tapioca and spices.',
           price: 7.99,
           image_url: kappaPuzhukuImage,
           is_vegetarian: false,
@@ -367,7 +366,7 @@ export default function Menu() {
         {
           id: '20',
           name: 'OLD DELHI STYLE BUTTER CHICKEN',
-          description: 'Traditional dish made from chicken tikka cooked with onion and tomato sauce, finished with fenugreek, fresh cream, honey and butter (7)',
+          description: 'Chicken tikka cooked in a creamy tomato sauce with fenugreek, fresh cream, honey and butter.',
           price: 14.99,
           image_url: butterChickenImage,
           is_vegetarian: false,
@@ -377,7 +376,7 @@ export default function Menu() {
         {
           id: '21',
           name: 'PANEER BUTTER MASALA',
-          description: 'Grilled cubes of cottage cheese cooked in a rich and creamy tomato sauce infused with aromatic spices (7)',
+          description: 'Grilled cottage cheese cubes simmered in a rich, creamy, spiced tomato gravy.',
           price: 13.99,
           image_url: paneerButterImage,
           is_vegetarian: true,
@@ -424,7 +423,7 @@ export default function Menu() {
         {
           id: '25',
           name: 'NEYY CHORU',
-          description: 'Ghee rice',
+          description: 'Fragrant ghee rice',
           price: 4.50,
           image_url: neyyChoruImage,
           is_vegetarian: true,
@@ -501,7 +500,7 @@ export default function Menu() {
         {
           id: '32',
           name: 'MASALA TEA',
-          description: 'Spiced Indian tea',
+          description: 'Aromatic spiced Indian tea',
           price: 3.00,
           image_url: masalaTeaImage,
           is_vegetarian: true,
