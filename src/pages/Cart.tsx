@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useCart } from '../contexts/CartContext';
-import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Lock, ChevronRight, Leaf, Wheat, AlertCircle } from 'lucide-react';
+import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Lock, ChevronRight, Leaf, Wheat, AlertCircle, Phone, ExternalLink } from 'lucide-react';
 
 interface CartProps {
   onNavigate: (page: string) => void;
@@ -271,72 +271,104 @@ export default function Cart({ onNavigate }: CartProps) {
                 onClick={handleCheckout}
                 className="w-full bg-gradient-to-r from-amber-600 to-amber-700 text-white py-4 rounded-xl font-bold text-lg hover:from-amber-700 hover:to-amber-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
               >
-                <Lock size={20} />
-                Proceed to Checkout
+                <ShoppingBag size={20} />
+                Choose Order Method
               </button>
 
-              {/* Payment Security Info */}
+              {/* Order Info */}
               <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 p-4 rounded-lg">
-                <CreditCard size={20} className="text-amber-600 flex-shrink-0" />
+                <AlertCircle size={20} className="text-amber-600 flex-shrink-0" />
                 <p>
-                  Secure checkout powered by industry-leading payment processors
+                  Order via Deliveroo, Uber Eats, or call us for pickup
                 </p>
-              </div>
-
-              {/* Accepted Payment Methods */}
-              <div className="pt-4 border-t border-gray-200">
-                <p className="text-xs text-gray-600 text-center mb-3">We Accept</p>
-                <div className="flex justify-center gap-3 flex-wrap">
-                  <div className="w-12 h-8 bg-gray-200 rounded flex items-center justify-center text-xs font-bold text-gray-600">
-                    VISA
-                  </div>
-                  <div className="w-12 h-8 bg-gray-200 rounded flex items-center justify-center text-xs font-bold text-gray-600">
-                    MC
-                  </div>
-                  <div className="w-12 h-8 bg-gray-200 rounded flex items-center justify-center text-xs font-bold text-gray-600">
-                    AMEX
-                  </div>
-                  <div className="w-12 h-8 bg-gray-200 rounded flex items-center justify-center text-xs font-bold text-gray-600">
-                    PayPal
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Checkout Modal Placeholder */}
+      {/* Checkout Modal - Order Methods */}
       {showCheckout && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl animate-scale-in">
-            <div className="text-center">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-2xl animate-scale-in">
+            <div className="text-center mb-6">
               <div className="inline-block p-4 bg-amber-100 rounded-full mb-4">
-                <Lock size={48} className="text-amber-600" />
+                <ShoppingBag size={48} className="text-amber-600" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                Checkout Coming Soon!
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
+                Choose Your Order Method
               </h2>
-              <p className="text-gray-600 mb-6">
-                Payment gateway integration is ready for your backend implementation.
+              <p className="text-gray-600">
+                Select how you'd like to complete your order
               </p>
-              <div className="space-y-3">
-                <button
-                  onClick={() => setShowCheckout(false)}
-                  className="w-full bg-amber-600 text-white py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200"
-                >
-                  Continue Shopping
-                </button>
-                <button
-                  onClick={() => {
-                    setShowCheckout(false);
-                    onNavigate('contact');
-                  }}
-                  className="w-full border-2 border-amber-600 text-amber-600 py-3 rounded-lg font-semibold hover:bg-amber-50 transition-colors duration-200"
-                >
-                  Contact Us for Orders
-                </button>
-              </div>
+            </div>
+
+            <div className="space-y-3 mb-6">
+              {/* Deliveroo */}
+              <button
+                onClick={() => {
+                  window.open('https://deliveroo.ie/menu/dublin/temple-bar/pulari-restaurant', '_blank');
+                }}
+                className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-teal-600 font-bold text-lg">D</span>
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold">Order on Deliveroo</div>
+                    <div className="text-xs text-teal-100">Fast delivery to your door</div>
+                  </div>
+                </div>
+                <ExternalLink size={20} />
+              </button>
+
+              {/* Uber Eats */}
+              <button
+                onClick={() => {
+                  window.open('https://www.ubereats.com/ie/store/pulari-restaurant/abc123', '_blank');
+                }}
+                className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-green-600 font-bold text-lg">U</span>
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold">Order on Uber Eats</div>
+                    <div className="text-xs text-green-100">Quick delivery service</div>
+                  </div>
+                </div>
+                <ExternalLink size={20} />
+              </button>
+
+              {/* Call for Pickup */}
+              <button
+                onClick={() => {
+                  window.location.href = 'tel:+353879738186';
+                }}
+                className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <Phone size={20} className="text-amber-600" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold">Call for Pickup</div>
+                    <div className="text-xs text-amber-100">087 973 8186</div>
+                  </div>
+                </div>
+                <ChevronRight size={20} />
+              </button>
+            </div>
+
+            <div className="border-t pt-4">
+              <button
+                onClick={() => setShowCheckout(false)}
+                className="w-full text-gray-600 hover:text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200"
+              >
+                Continue Shopping
+              </button>
             </div>
           </div>
         </div>
